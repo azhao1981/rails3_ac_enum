@@ -1,4 +1,5 @@
 require 'active_support/core_ext/object/deep_dup'
+require 'value'
 
 module ActiveRecord
   # Declare an enum attribute where the values map to integers in the database,
@@ -104,7 +105,7 @@ module ActiveRecord
       super
     end
 
-    class EnumType < Type::Value
+    class EnumType < ::ActiveModel::Type::Value
       def initialize(name, mapping)
         @name = name
         @mapping = mapping
